@@ -16,7 +16,7 @@
     (textarea
      {:value (:content store),
       :placeholder "Content",
-      :style (merge ui/textarea {:width 640, :height 320}),
+      :style (merge ui/textarea {:width 640, :height 320, :font-size 12}),
       :on {:input (fn [e d! m!] (d! :content (:value e)))}})
     (=< "8px" nil)
     (div
