@@ -1,5 +1,5 @@
 
-(ns app.comp.container
+(ns ir.comp.container
   (:require [hsl.core :refer [hsl]]
             [respo-ui.style :as ui]
             [respo.macros :refer [defcomp cursor-> <> div button textarea span]]

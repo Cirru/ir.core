@@ -1,9 +1,9 @@
 
-(ns app.render
+(ns ir.render
   (:require [respo.render.html :refer [make-string]]
             [shell-page.core :refer [make-page spit slurp]]
-            [app.comp.container :refer [comp-container]]
-            [app.schema :as schema]
+            [ir.comp.container :refer [comp-container]]
+            [ir.schema :as schema]
             [reel.schema :as reel-schema]
             [cljs.reader :refer [read-string]]))
 

@@ -12,11 +12,11 @@
  :builds {:browser {:target :browser
                     :output-dir "target/browser"
                     :asset-path "/browser"
-                    :modules {:main {:entries [app.main]
+                    :modules {:main {:entries [ir.main]
                                      :depends-on #{:lib}}
                               :lib {:entries [respo.core respo.macros
                                               respo.comp.inspect]}}
-                    :devtools {:after-load app.main/reload!
+                    :devtools {:after-load ir.main/reload!
                                :preloads [shadow.cljs.devtools.client.hud]
                                :http-root "target"
                                :http-port 8080}
@@ -26,5 +26,5 @@
                               :build-options {:manifest-name "assets.edn"}}}
           :ssr {:target :node-script
                 :output-to "target/ssr.js"
-                :main app.render/main!
-                :devtools {:after-load app.render/main!}}}}
+                :main ir.render/main!
+                :devtools {:after-load ir.render/main!}}}}
