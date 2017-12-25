@@ -16,7 +16,7 @@
           result
           (let [y (first ys)]
             (recur
-             (assoc result next-id (cirru->tree y author timestamp))
+             (assoc result next-id (cirru->tree y author timestamp id!))
              (rest ys)
              (bisection/bisect next-id bisection/max-id)))))})
     (merge schema/leaf {:time timestamp, :author author, :text xs, :id (id!)})))

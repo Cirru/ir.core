@@ -5,7 +5,9 @@
             [respo.macros :refer [defcomp cursor-> <> div button textarea span]]
             [verbosely.core :refer [verbosely!]]
             [respo.comp.space :refer [=<]]
-            [reel.comp.reel :refer [comp-reel]]))
+            [reel.comp.reel :refer [comp-reel]]
+            [ir.example :as example]
+            [fipp.edn :refer [pprint]]))
 
 (defcomp
  comp-container
@@ -14,10 +16,15 @@
    (div
     {:style (merge ui/global ui/row)}
     (textarea
-     {:value (:content store),
-      :placeholder "Content",
-      :style (merge ui/textarea {:width 640, :height 320, :font-size 12}),
-      :on {:input (fn [e d! m!] (d! :content (:value e)))}})
+     {:value (with-out-str (pprint example/base-app {:width 200})),
+      :placeholder "code",
+      :style (merge
+              ui/textarea
+              {:width 640,
+               :height 320,
+               :font-size 12,
+               :font-family "Source Code Pro, Menlo, monospace"}),
+      :on-input (fn [e d! m!] (d! :content (:value e)))})
     (=< "8px" nil)
     (div
      {}
