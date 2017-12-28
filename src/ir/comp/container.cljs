@@ -7,7 +7,7 @@
             [respo.comp.space :refer [=<]]
             [reel.comp.reel :refer [comp-reel]]
             [ir.example :as example]
-            [fipp.edn :refer [pprint]]))
+            [favored-edn.core :refer [write-edn]]))
 
 (defcomp
  comp-container
@@ -16,7 +16,7 @@
    (div
     {:style (merge ui/global ui/row)}
     (textarea
-     {:value (with-out-str (pprint example/base-app {:width 200})),
+     {:value (write-edn example/base-app),
       :placeholder "code",
       :style (merge
               ui/textarea
@@ -31,5 +31,5 @@
      (button
       {:style ui/button,
        :inner-text (str "run"),
-       :on {:click (fn [e d! m!] (println (:content store)))}}))
+       :on-click (fn [e d! m!] (println (:content store)))}))
     (cursor-> :reel comp-reel states reel {}))))
